@@ -1,23 +1,27 @@
 # Escrow smart contract
 
-Trustless business will need some time to have working governance & problem resolution. We develop apps in blockchain field (from protocol level through smart contracts, ICOs to layer 2 apps). For that we felt we need some more protection in extremely unregulated environment. This is why we created Escrow smart contract.
+It's strange that in the crypto world, where "trustlessness" is such a core value, the only way to hire and pay people is essentially to trust them completely. I haven't found a lightweight way to hire people for services, so I'm working on this smart contract.
 
-We're sorry we mention Flexiana as one of the parties. In one of next versions we will replace Flexiana with Delivery.
+It will allow customers to ensure that payment only goes through to the recipient if they deliver a particular service. If they don't, the customer can lodge a dispute and the judge can return their money.
+
+I hope to build a UI on this eventually too.
+
+Forked from Flexiana's escrow smart contract. So in the below, "Flexiana" refers to the delivery user.
 
 ## How to deploy
 
 ### Deployment to mainnet
 
-Probably easiest way to compile and deploy smartcontract can be found here: https://ethereum.stackexchange.com/questions/33536/how-to-compile-and-deploy-a-smart-contract-without-running-a-full-node
+Probably the easiest way to compile and deploy the smart contract can be found here: https://ethereum.stackexchange.com/questions/33536/how-to-compile-and-deploy-a-smart-contract-without-running-a-full-node
 
 ### Setting addresses
 
-After creating a contract, owner must call `setAddressesOnce(judge, delivery, customer)` and setup addresses.
-This method can be called just once. Every other call ends with exeption.
+After creating the contract, the owner must call `setAddressesOnce(judge, delivery, customer)` and setup the judge, delivery and customer addresses.
+This method can be called just once. Every other call ends with exception.
 
 ## How to use as a judge
 
-Please, backup your private key. Only flexiana+customer cooperating and holding keys can recover funds on this address.
+Please, backup your private key. Only delivery and customer cooperating and holding keys can recover funds on this address.
 
 Judge can call exactly 2 methods:
 
@@ -26,7 +30,7 @@ Judge can call exactly 2 methods:
 
 ## How to use as a delivery
 
-Please, backup your private key on secure location. Loosing private key means that only judge can recover funds by transfering them back to the customer.
+Please, backup your private key on secure location. Losing private key means that only judge can recover funds by transfering them back to the customer.
 
 ### Changing status (return to sender, transfer to you)
 
@@ -40,7 +44,7 @@ Flexiana can setup 3 statuses:
 
 For withdrawals, Flexiana can call 2 methods:
 
-1. `transferToFlexiana` - if flexiana has status ShouldTransferToCustomer, anyone can call this method.
+1. `transferToFlexiana` - if Flexiana has status ShouldTransferToCustomer, anyone can call this method.
 2. `withdraw` - if customer and you have status ShouldTransferToFlexiana, method automatically recognizes you are eligible recipient and will send funds to your address.
 
 ## How to use as a customer
