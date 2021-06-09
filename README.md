@@ -93,8 +93,3 @@ Easiest way on mainnet are:
 - Partial withdrawals & authorizing partial withdrawal #solidity
 - Some UI to create, inspect & manage escrows #maybe #javascript #golang 
 
-## Support us
-
-- Please, don't remove LICENSE file & when you will use it, let world know you are using Flexiana library
-- If you need to write any smart contract, contact us on jiri@flexiana.com
-- Feel free to donate Litecoin to address LWZXy7zp9Lj6aFYJi8XdDN96rEptL6c1te or ETH to address 0xa92f637e930395e81D3b6e78ACbAEA8DE735CB46 or BTC to address 1P4m6neNV1pm8WwGDex64tKn4zezg2xLG3
